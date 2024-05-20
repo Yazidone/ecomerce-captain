@@ -64,6 +64,7 @@ Route::post('/signuppop', [ClientformController::class,'indexclient']) ->name('i
 
 
 Route::post('/client', [ClientformController::class,'clientsignin']) ->name('clientsignin');
+// change lang
 Route::get('lang/{lang}',[LangController::class,'changelang']);
 
 
