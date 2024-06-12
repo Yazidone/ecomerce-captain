@@ -24,11 +24,14 @@ class ProductController extends Controller
     }
     // front
     public function productHome() {
-        $boots = Product::where('category_id','6')->get(); 
-        $tshirts = Product::where('category_id','5')->get();
+        $boots = Product::where('category_id','2')->get(); 
+        $tshirts = Product::where('category_id','1')->get();
+        $productSlides = Product::limit(6)->get();
         return view('front.index',[
             'boots' => $boots,
             'tshirts' => $tshirts,
+            'productSlides' => $productSlides,
+
         ]);
     }
 

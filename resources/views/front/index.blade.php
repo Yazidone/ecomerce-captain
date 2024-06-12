@@ -670,93 +670,24 @@
             <div class="flex justify-center">
                 <div class="container">
                     <div class="slider">
-
+                        @foreach ($productSlides as $product)
                         <div class="box1 box">
                             <div class="bg"></div>
                             <div class="details ">
-                                <h1 title-slider text-white>I'm the first Box</h1>
+                                <h1 title-slider text-white>{{ $product->name }}</h1>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
-                                    diam, ac mattis orci pellentesque eget.
+                                   {{ $product->description }}
                                 </p>
-                                <button>Check Now</button>
+                                <button id="checkout-{{ $product->id }}">Check Now</button>
                             </div>
 
-                            <div class="illustration"> <img src="{{ asset('front/img/gilet.png') }}" width="520px"
+                            <div class="illustration"> <img src="{{ asset('storage/product').'/'.$product->image->name }}" width="520px"
                                     alt="">
                             </div>
                         </div>
+                        @endforeach
+                       
 
-
-                        <div class="box2 box">
-                            <div class="bg"></div>
-                            <div class="details">
-                                <h1 class="title-slider  text-white">I'm the second Box</h1>
-                                <p class="text-white">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
-                                    diam, ac mattis orci pellentesque eget.
-                                </p>
-                                <button>Check Now</button>
-                            </div>
-
-                            <div class="illustration">
-                                <img src="{{ asset('front/img/sac.png') }}" width="520px" alt="">
-                                <!-- <div class="inner"></div> -->
-                            </div>
-                        </div>
-
-                        <div class="box3 box">
-                            <div class="bg"></div>
-                            <div class="details">
-                                <h1 class="title-slider   text-white">I'm the third Box</h1>
-                                <p class="text-white">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
-                                    diam, ac mattis orci pellentesque eget.
-                                </p>
-                                <button>Check Now</button>
-                            </div>
-
-                            <div class="illustration"> <img src="{{ asset('front/img/CHAPEAU.png') }}"
-                                    width="520px" alt="">
-                            </div>
-                        </div>
-
-                        <div class="box4 box">
-                            <div class="bg"></div>
-                            <div class="details">
-                                <h1 class=" title-slider   text-white">I'm the fourth Box</h1>
-                                <p class="text-slider">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
-                                    diam, ac mattis orci pellentesque eget.
-                                </p>
-                                <button>Check Now</button>
-                            </div>
-
-                            <div class="illustration"> <img src="{{ asset('front/img/manteau.png') }}"
-                                    width="520px" alt="">
-                            </div>
-                        </div>
-
-                        <div class="box5 box">
-                            <div class="bg"></div>
-                            <div class="details  ">
-                                <h1 class="title-slider  text-white">I'm the fifth Box</h1>
-                                <p class="text-slider">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing
-                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
-                                    diam, ac mattis orci pellentesque eget.
-                                </p>
-                                <button class="button-slider">Check Now</button>
-                            </div>
-
-                            <div class="illustration"> <img src="{{ asset('front/img/BOTTES.png') }}" width="520px"
-                                    alt="">
-                            </div>
-                        </div>
 
                     </div>
 
@@ -771,11 +702,9 @@
                             fill="#fff" />
                     </svg>
                     <div class="trail">
-                        <div class="box1 active">1</div>
-                        <div class="box2">2</div>
-                        <div class="box3">3</div>
-                        <div class="box4">4</div>
-                        <div class="box5">5</div>
+                        @foreach ($productSlides as $key => $product)
+                        <div class="box1 {{ ($key+1) ==0 ? 'active' : '' }}">{{ $key+1 }}</div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -814,14 +743,14 @@
                     <div class="relative hidden lg:flex flex-col min-hfull  items-center justify-center">
                         <img src="https://static.nike.com/a/images/t_default/xafjtunb69j40gagoyyc/chaussure-air-max-270-pour-9KTdg8qw.jpg"
                             class="absolute w-10 inset-0 m-5" alt="">
-                        <img src="{{ asset('storage/product/' . $boot->image) }}"
+                        <img src="{{ asset('storage/product/' . $boot->image->name) }}"
                             class="w-80 transform -rotate-25 mr-3" alt="">
 
                     </div>
 
 
                     <div class="bg-white rounded-xl shadow-md h-96 flex flex-col relative w-72 lg:w-96 flex-shrink-0">
-                        <img src='{{ asset('storage/product/' . $boot->image) }}'
+                        <img src='{{ asset('storage/product/' . $boot->image->name) }}'
                             class="absolute lg-hidden  top-0 transform -translate-y-1/2 rotate-12 w-52"
                             alt="">
                         <div class="mt-28 mx-5 lg:mt -16 px text-gray-700 flex-1">
