@@ -1,4 +1,6 @@
 <!-- Edit Modal HTML -->
+
+
 <div id="addModal" class="modal fade">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -35,6 +37,29 @@
 							<label>Price</label>
 							<input type="text" name="Price" class="form-control" required>
 						</div>
+						<div class="form-group">
+							<label>Size</label>
+							<select name="size" id="">
+								{{-- <option value="L">Large (L)</option>
+								<option value="XL">Extra Large (XL)</option>
+								<option value="XXL">Double Extra Large (XXL)</option>
+								<option value="40">40</option>
+								<option value="41">41</option>
+								<option value="42">42</option>
+								<option value="44">44</option>
+								<option value="45">45</option> --}}
+
+							</select>
+						</div>	
+						{{-- color product --}}
+						<div class="form-group">
+							<label>Color</label>
+                            <input type="text" name="color1" class="form-control" placeholder="color 1" required> <br>
+                            <input type="text" name="color2" class="form-control" placeholder="color 2" > <br>
+                            <input type="text" name="color3" class="form-control" placeholder="color 3" > <br>
+                            <input type="text" name="color4" class="form-control" placeholder="color 4" > <br>
+                        </div>
+
 						
 						<div class="form-group">
 							<label>Quantity</label>
@@ -57,3 +82,4 @@
 			</div>
 		</div>
 </div>
+

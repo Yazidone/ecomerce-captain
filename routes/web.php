@@ -19,11 +19,9 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', function () {
-    return view('front.index');
-});
+Route::get('/', [ProductController::class,'productHome']);
 
-Route::get('/dashborad', function () {
+Route::get('/dashboard', function () {
     return view('dashboard');
 });
 

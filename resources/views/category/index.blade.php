@@ -40,7 +40,7 @@
                                 <td> {{$category->name}}</td>
                                 <td> 
                                     {{--   image product --}}
-                                        <img class="img-profile rounded-circle" width="100"
+                                        <img class="img-profile" width="100"
                                             src="{{asset('storage/category'.'/'.$category->image)}}"/>
                                 </td>
 
@@ -78,7 +78,7 @@
     </div>
 </div>
     @include('category.add')
-    @include('category.edit')
+    {{-- @include('category.edit') --}}
     @include('category.delete')
     <script>
     </script>

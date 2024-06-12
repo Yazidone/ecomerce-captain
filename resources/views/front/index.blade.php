@@ -35,6 +35,10 @@
         @tailwind utilities;
 
         @layer utilities {
+            .footer{
+                background-image:linear-gradient(rgba(4,9,30,0.02),rgba(4 9 30 /39%)), url({{ asset('img/footer.jpg') }});
+                
+            }
             .flying-img {
                 position: absolute;
                 animation: fly_to_cart 1s ease-in-out;
@@ -67,8 +71,374 @@
             }
 
             .shopping-cart.active {
-               background-color: #bae6fd;
-               
+                background-color: #bae6fd;
+
+            }
+
+
+            .container {
+                position: relative;
+                overflow: hidden;
+                border-radius: 5rem;
+            }
+
+            @media only screen and (max-width: 1000px) {
+                .container {
+                    border-radius: 0;
+                }
+            }
+
+            .slider {
+                display: flex;
+                width: 500%;
+                height: 55rem;
+                transition: all 0.25s ease-in;
+                transform: translateX(0);
+            }
+
+            @media only screen and (max-width: 1000px) {
+                .slider {
+                    height: 100vh;
+                }
+            }
+
+            .slider .box {
+                height: 100%;
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+                overflow: hidden;
+                position: relative;
+            }
+
+            @media only screen and (max-width: 650px) {
+                .slider .box {
+                    grid-template-columns: 1fr;
+                    grid-template-rows: repeat(2, 1fr);
+                }
+            }
+
+            .slider .box .bg {
+                padding: 2rem;
+                /* background-color: rgba(0, 0, 0, 0.2); */
+                width: 55%;
+                transform: skewX(7deg);
+                position: absolute;
+                height: 100%;
+                left: -10%;
+                padding-left: 20rem;
+                transform-origin: 0 100%;
+            }
+
+            @media only screen and (max-width: 800px) {
+                .slider .box .bg {
+                    width: 65%;
+                }
+            }
+
+            @media only screen and (max-width: 650px) {
+                .slider .box .bg {
+                    width: 100%;
+                    left: 0;
+                    bottom: 0;
+                    height: 54%;
+                    transform: skewX(0deg);
+                }
+            }
+
+            .slider .box .bg::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                background-color: inherit;
+                pointer-events: none;
+                transform: skewX(10deg);
+            }
+
+            @media only screen and (max-width: 650px) {
+                .slider .box .bg::before {
+                    width: 120%;
+                    bottom: 0;
+                    transform: skewX(0deg);
+                }
+            }
+
+            .slider .box .details {
+                padding: 5rem;
+                padding-left: 10rem;
+                z-index: 100;
+                grid-column: 1/span 1;
+                grid-row: 1/-1;
+            }
+
+            @media only screen and (max-width: 650px) {
+                .slider .box .details {
+                    grid-row: 2/span 1;
+                    grid-column: 1/-1;
+                    text-align: center;
+                    padding: 2rem;
+                    transform: translateY(-9rem);
+                }
+            }
+
+            .slider .box .details h1 {
+                font-size: 3.5rem;
+                font-weight: 500;
+                margin-bottom: 0.5rem;
+            }
+
+            .slider .box .details p {
+                display: inline-block;
+                font-size: 1.3rem;
+                color: #B5B4B4;
+                margin-bottom: 2rem;
+                margin-right: 5rem;
+            }
+
+            @media only screen and (max-width: 800px) {
+                .slider .box .details p {
+                    margin-right: 0;
+                }
+            }
+
+            .slider .box .details button {
+                padding: 1rem 3rem;
+                color: #fff;
+                border-radius: 2rem;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .slider .box .details button:hover {
+                opacity: 0.8;
+            }
+
+            .slider .box .details button:focus {
+                outline: none;
+                border: none;
+            }
+
+            .slider .box1 {
+                /* background-color: #500033; */
+            }
+
+            .slider .box1 .illustration .inner {
+                background-color: #FF0077;
+            }
+
+            .slider .box1 .illustration .inner::after,
+            .slider .box1 .illustration .inner::before {
+                background-color: rgba(255, 0, 119, 0.4);
+            }
+
+            .slider .box1 button {
+                background-color:  #0033FF ;
+            }
+
+            .slider .box2 {
+                /* background-color: #000050; */
+            }
+
+            .slider .box2 .illustration .inner {
+                background-color: #0033FF;
+            }
+
+            .slider .box2 .illustration .inner::after,
+            .slider .box2 .illustration .inner::before {
+                background-color: rgba(0, 51, 255, 0.4);
+            }
+
+            .slider .box2 button {
+                background-color: #0033FF;
+            }
+
+            .slider .box3 {
+                /* background-color: #00501D; */
+            }
+
+            .slider .box3 .illustration .inner {
+                background-color: #00FF44;
+            }
+
+            .slider .box3 .illustration .inner::after,
+            .slider .box3 .illustration .inner::before {
+                background-color: rgba(0, 255, 68, 0.4);
+            }
+
+            .slider .box3 button {
+                background-color:  #0033FF;
+            }
+
+            .slider .box4 {
+                /* background-color: #554D00; */
+            }
+
+            .slider .box4 .illustration .inner {
+                background-color: #FF4E00;
+            }
+
+            .slider .box4 .illustration .inner::after,
+            .slider .box4 .illustration .inner::before {
+                background-color: rgba(255, 78, 0, 0.4);
+            }
+
+            .slider .box4 button {
+                background-color:  #0033FF;
+            }
+
+            .slider .box5 {
+                /* background-color: #300050; */
+            }
+
+            .slider .box5 .illustration .inner {
+                background-color: #8000FF;
+            }
+
+            .slider .box5 .illustration .inner::after,
+            .slider .box5 .illustration .inner::before {
+                background-color: rgba(128, 0, 255, 0.4);
+            }
+
+            .slider .box5 button {
+                background-color:  #0033FF;
+            }
+
+            .slider .illustration {
+                grid-column: 2/-1;
+                grid-row: 1/-1;
+                justify-self: center;
+            }
+
+            @media only screen and (max-width: 650px) {
+                .slider .illustration {
+                    grid-row: 1/span 1;
+                    grid-column: 1/-1;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+
+            .slider .illustration div {
+                height: 25rem;
+                width: 18rem;
+                border-radius: 3rem;
+                background-color: #FF0077;
+                position: relative;
+                transform: skewX(-10deg);
+            }
+
+            @media only screen and (max-width: 800px) {
+                .slider .illustration div {
+                    height: 20rem;
+                    width: 15rem;
+                }
+            }
+
+            .slider .illustration div::after,
+            .slider .illustration div::before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                border-radius: 3rem;
+                top: 0;
+                left: 0;
+            }
+
+            .slider .illustration div::after {
+                transform: translate(4rem, -1rem);
+            }
+
+            .slider .illustration div::before {
+                transform: translate(2rem, -2rem);
+            }
+
+            .prev,
+            .next,
+            .trail {
+                z-index: 10000;
+                position: absolute;
+            }
+
+            .prev,
+            .next {
+                width: 4rem;
+                cursor: pointer;
+                opacity: 0.5;
+                transition: all 0.3s ease;
+            }
+
+            @media only screen and (max-width: 650px) {
+
+                .prev,
+                .next {
+                    display: none;
+                }
+            }
+
+            .prev:hover,
+            .next:hover {
+                opacity: 1;
+            }
+
+            .prev {
+                top: 50%;
+                left: 2%;
+                transform: translateY(-50%);
+            }
+
+            .next {
+                top: 50%;
+                right: 2%;
+                transform: translateY(-50%);
+            }
+
+            .trail {
+                bottom: 5%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60%;
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 1rem;
+                text-align: center;
+                font-size: 1.5rem;
+            }
+
+            @media only screen and (max-width: 650px) {
+                .trail {
+                    width: 90%;
+                    bottom: 13%;
+                }
+            }
+
+            .trail div {
+                padding: 2rem;
+                border-top: 3px solid #fff;
+                cursor: pointer;
+                opacity: 0.3;
+                transition: all 0.3s ease;
+            }
+
+            .trail div:hover {
+                opacity: 0.6;
+            }
+
+            @media only screen and (max-width: 650px) {
+                .trail div {
+                    padding: 1rem;
+                }
+            }
+
+            .active {
+                opacity: 1 !important;
             }
         }
     </style>
@@ -122,13 +492,14 @@
                         class="text-white focus:outline-none font-medium rounded-lg text-[9px] px-3 py-1 text-center inline-flex items-center"
                         type="button">
                         @if (app()->getLocale() == 'en')
-                            @lang('front.en') <img src="{{ asset('front/img/eng.png') }}" class="w-3 ml-2" alt="">
-                            
+                            @lang('front.en') <img src="{{ asset('front/img/eng.png') }}" class="w-3 ml-2"
+                                alt="">
                         @elseif (app()->getLocale() == 'fr')
-                            @lang('front.fr') <img src="{{ asset('front/img/fr.png') }}" class="w-3 ml-2" alt="">
-                            
+                            @lang('front.fr') <img src="{{ asset('front/img/fr.png') }}" class="w-3 ml-2"
+                                alt="">
                         @else
-                            @lang('front.ar') <img src="{{ asset('front/img/ar.png') }}" class="w-3 ml-2" alt="">
+                            @lang('front.ar') <img src="{{ asset('front/img/ar.png') }}" class="w-3 ml-2"
+                                alt="">
                         @endif
 
                         <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -142,17 +513,17 @@
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
                             <li>
-                                <a href="{{url('lang/en') }}"
+                                <a href="{{ url('lang/en') }}"
                                     class="flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">@lang('front.en')
                                     <img src="{{ asset('front/img/eng.png') }}" class="w-5 ml-2" alt=""></a>
                             </li>
                             <li>
-                                <a href="{{url('lang/fr') }}"
+                                <a href="{{ url('lang/fr') }}"
                                     class="flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">@lang('front.fr')
                                     <img src="{{ asset('front/img/fr.png') }}" class="w-5 ml-2" alt=""></a>
                             </li>
                             <li>
-                                <a href="{{url('lang/ar') }}"
+                                <a href="{{ url('lang/ar') }}"
                                     class="flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">@lang('front.ar')
                                     <img src="{{ asset('front/img/ar.png') }}" class="w-5 ml-2" alt=""></a>
                             </li>
@@ -172,8 +543,9 @@
                     <div id="currency"
                         class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
 
-                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-                            
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownHoverButton">
+
                             <li>
                                 <a href="#"
                                     class="flex px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-black">$</a>
@@ -237,8 +609,8 @@
                     class='flex border-2 focus-within:border-gray-400 rounded-full px-6 py-3 overflow-hidden max-w-52 max-lg:hidden'>
                     <input type='text' placeholder='Search something...'
                         class='w-full text-sm bg-transparent outline-none pr-2' />
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="16px"
-                        class="cursor-pointer fill-gray-600">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.904 192.904" width="18px"
+                        class="cursor-pointer fill-white">
                         <path
                             d="m190.707 180.101-47.078-47.077c11.702-14.072 18.752-32.142 18.752-51.831C162.381 36.423 125.959 0 81.191 0 36.422 0 0 36.423 0 81.193c0 44.767 36.422 81.187 81.191 81.187 19.688 0 37.759-7.049 51.831-18.751l47.079 47.078a7.474 7.474 0 0 0 5.303 2.197 7.498 7.498 0 0 0 5.303-12.803zM15 81.193C15 44.694 44.693 15 81.191 15c36.497 0 66.189 29.694 66.189 66.193 0 36.496-29.692 66.187-66.189 66.187C44.693 147.38 15 117.689 15 81.193z">
                         </path>
@@ -257,7 +629,7 @@
                             class="absolute left-auto -ml-1 top-0 rounded-full bg-red-500 px-1 py-0 text-xs text-white">0</span>
                     </span>
 
-                    <span class="relative shopping-cart rounded-full px-3 py-2" data-product-count="0">
+                    <span class="shopping-cart relative rounded-full px-3 py-2" data-product-count="0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
                             class="cursor-pointer fill-[#333] inline" viewBox="0 0 512 512">
                             <path
@@ -293,151 +665,123 @@
     {{-- slider image --}}
     <section class="h-screen bg-[url('{{ asset('img/sea.jpeg') }}')] bg-no-repeat bg-cover bg-center">
         <div class=" h-full ">
-            <div>
-                <div class="min-h-screen  p-3 relative">
-                    <div class="w-96 mx-auto" style="scroll-snap-type: x mandatory;">
-                        <!-- first -->
-                        <div class="">
-                            <input class="sr-only peer" type="radio" name="carousel" id="carousel-1" checked />
-                            <!-- content #1 -->
-                            <div
-                                class="w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
-                                <img class="rounded-t-lg w-96 h-64"
-                                    src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="" />
-                                <div class="py-4 px-8">
-                                    <h1
-                                        class="hover:cursor-pointer mt-2 text-gray-900 font-bold text-2xl tracking-tight">
-                                        Lorem
-                                        ipsum dolor sit amet consectetur adipisicing.
-                                    </h1>
-                                    <p class="hover:cursor-pointer py-3 text-gray-600 leading-6">Lorem ipsum dolor, sit
-                                        amet
-                                        consectetur adipisicing elit.
-                                    </p>
-                                </div>
-                                <!-- controls -->
-                                <div class="absolute top-1/2 w-full flex justify-between z-20">
-                                    <label for="carousel-3"
-                                        class="inline-block text-red-600 cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                            fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </label>
-                                    <label for="carousel-2"
-                                        class="inline-block text-red-600 cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                            fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </label>
-                                </div>
+            <div class="flex justify-center">
+                <div class="container">
+                    <div class="slider">
+
+                        <div class="box1 box">
+                            <div class="bg"></div>
+                            <div class="details ">
+                                <h1 title-slider   text-white>I'm the first Box</h1>
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
+                                    diam, ac mattis orci pellentesque eget.
+                                </p>
+                                <button>Check Now</button>
+                            </div>
+
+                            <div class="illustration"> <img src="{{ asset('front/img/gilet.png') }}"
+                                    width="520px" alt="">
                             </div>
                         </div>
-                        <!-- second -->
-                        <div class="">
-                            <input class="sr-only peer" type="radio" name="carousel" id="carousel-2" />
-                            <!-- content #2 -->
-                            <div
-                                class="w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
-                                <img class="rounded-t-lg w-96 h-64"
-                                    src="https://images.unsplash.com/photo-1628191139360-4083564d03fd?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=384&q=80"
-                                    alt="" />
-                                <div class="py-4 px-8">
-                                    <h1
-                                        class="hover:cursor-pointer mt-2 text-gray-900 font-bold text-2xl tracking-tight">
-                                        Scelerisque eleifend donec pretium vulputate sapien.
-                                    </h1>
-                                    <p class="hover:cursor-pointer py-3 text-gray-600 leading-6">Egestas diam in arcu
-                                        cursus euismod
-                                        quis. Fusce id velit ut tortor. Congue quisque egestas diam in arcu cursus
-                                        euismod quis.
-                                    </p>
-                                </div>
-                                <!-- controls -->
-                                <div class="absolute top-1/2 w-full flex justify-between z-20">
-                                    <label for="carousel-1"
-                                        class="inline-block text-blue-600 cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                            fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </label>
-                                    <label for="carousel-3"
-                                        class="inline-block text-blue-600 cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                            fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </label>
-                                </div>
+
+
+                        <div class="box2 box">
+                            <div class="bg"></div>
+                            <div class="details">
+                                <h1 class="title-slider  text-white">I'm the second Box</h1>
+                                <p class="text-white">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
+                                    diam, ac mattis orci pellentesque eget.
+                                </p>
+                                <button>Check Now</button>
+                            </div>
+
+                            <div class="illustration">
+                                <img src="{{ asset('front/img/sac.png') }}" width="520px"
+                                    alt="">
+                                <!-- <div class="inner"></div> -->
                             </div>
                         </div>
-                        <!-- three -->
-                        <div class="">
-                            <input class="sr-only peer" type="radio" name="carousel" id="carousel-3" />
-                            <!-- content #3 -->
-                            <div
-                                class="w-96 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-lg transition-all duration-300 opacity-0 peer-checked:opacity-100 peer-checked:z-10 z-0">
-                                <img class="rounded-t-lg w-96 h-64"
-                                    src="https://images.unsplash.com/photo-1628718120482-07e03fe361dd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=384&q=80"
-                                    alt="" />
-                                <div class="py-4 px-8">
-                                    <h1
-                                        class="hover:cursor-pointer mt-2 text-gray-900 font-bold text-2xl tracking-tight">
-                                        Consectetur purus ut faucibus pulvinar elementum.
-                                    </h1>
-                                    <p class="hover:cursor-pointer py-3 text-gray-600 leading-6">Aliquam ultrices
-                                        sagittis orci a
-                                        scelerisque purus semper. Quisque id diam vel quam elementum pulvinar. Facilisis
-                                        magna etiam
-                                        tempor orci eu lobortis elementum.
-                                    </p>
-                                </div>
-                                <!-- controls -->
-                                <div class="absolute top-1/2 w-full flex justify-between z-20">
-                                    <label for="carousel-2"
-                                        class="inline-block text-yellow-600 cursor-pointer -translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                            fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm.707-10.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L9.414 11H13a1 1 0 100-2H9.414l1.293-1.293z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </label>
-                                    <label for="carousel-1"
-                                        class="inline-block text-yellow-600 cursor-pointer translate-x-5 bg-white rounded-full shadow-md active:translate-y-0.5">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 20 20"
-                                            fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                    </label>
-                                </div>
+
+                        <div class="box3 box">
+                            <div class="bg"></div>
+                            <div class="details">
+                                <h1 class="title-slider   text-white">I'm the third Box</h1>
+                                <p class="text-white">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
+                                    diam, ac mattis orci pellentesque eget.
+                                </p>
+                                <button>Check Now</button>
+                            </div>
+
+                            <div class="illustration"> <img src="{{ asset('front/img/CHAPEAU.png') }}"
+                                    width="520px" alt="">
                             </div>
                         </div>
+
+                        <div class="box4 box">
+                            <div class="bg"></div>
+                            <div class="details">
+                                <h1 class=" title-slider   text-white">I'm the fourth Box</h1>
+                                <p class="text-slider">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
+                                    diam, ac mattis orci pellentesque eget.
+                                </p>
+                                <button>Check Now</button>
+                            </div>
+
+                            <div class="illustration"> <img src="{{ asset('front/img/manteau.png') }}"
+                                    width="520px" alt="">
+                            </div>
+                        </div>
+
+                        <div class="box5 box">
+                            <div class="bg"></div>
+                            <div class="details  ">
+                                <h1 class="title-slider  text-white">I'm the fifth Box</h1>
+                                <p class="text-slider">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Integer lacinia dui lectus. Donec scelerisque ipsum
+                                    diam, ac mattis orci pellentesque eget.
+                                </p>
+                                <button class="button-slider">Check Now</button>
+                            </div>
+
+                            <div class="illustration"> <img src="{{ asset('front/img/BOTTES.png') }}"
+                                    width="520px" alt="">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="prev" width="56.898" height="91"
+                        viewBox="0 0 56.898 91">
+                        <path d="M45.5,0,91,56.9,48.452,24.068,0,56.9Z" transform="translate(0 91) rotate(-90)"
+                            fill="#fff" />
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="next" width="56.898" height="91"
+                        viewBox="0 0 56.898 91">
+                        <path d="M45.5,0,91,56.9,48.452,24.068,0,56.9Z" transform="translate(56.898) rotate(90)"
+                            fill="#fff" />
+                    </svg>
+                    <div class="trail">
+                        <div class="box1 active">1</div>
+                        <div class="box2">2</div>
+                        <div class="box3">3</div>
+                        <div class="box4">4</div>
+                        <div class="box5">5</div>
                     </div>
                 </div>
-                <a href="https://www.buymeacoffee.com/dgauderman" target="_blank"
-                    class="md:absolute bottom-0 right-0 p-4 float-right animate-bounce">
-                    <img src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-3.svg"
-                        alt="Buy Me A Coffee"
-                        class="transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white">
-                </a>
             </div>
 
             {{-- <p class="w-52">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur blanditiis iusto expedita neque autem ad dolorum. Vero nostrum, fuga tempora eum qui non excepturi provident eaque ab ullam vitae molestias.</p> --}}
             {{-- <img src="{{ asset('img/bg.jpg') }}" class="w-50"> </div> --}}
-            <div id="cards" class="flex flex-row justify-center space-x-5 -mt-[35px]">
+            <div id="cards" class="flex flex-row justify-center space-x-5 mt-[25px]">
                 <div class="p-5 bg-dark-200/30 text-black border border-white rounded-lg backdrop-brightness-125">
                     text <i class="fa-solid fa-money-check-dollar"></i>
                 </div>
@@ -458,24 +802,29 @@
         class="bg-gradient-to-b from-[rgba(0,111,149,1)] to-[rgba(0,67,100,0.8856792717086834)] to-[rgba(211,205,205,1)] h-full p-5">
 
         {{-- card --}}
+        <div class="text-center mb-5">
+            <h1 class="text-3xl font-bold"> Lastest Products </h1>
+            <h3> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        </div>
         <div class="min-h-screen  flex items-center justify-center antialised space-x-2">
             <!-- card -->
+            @foreach ($boots as $boot)
             <div class=" flex bg-gradient-to-tr from-blue-100 to -ble-200 rounded-xl shadow-lg">
                 <div class="relative hidden lg:flex flex-col min-hfull  items-center justify-center">
                     <img src="https://static.nike.com/a/images/t_default/xafjtunb69j40gagoyyc/chaussure-air-max-270-pour-9KTdg8qw.jpg"
                         class="absolute w-10 inset-0 m-5" alt="">
-                    <img src="{{ asset('front/img/shoes-removebg-preview.png') }}"
+                    <img src="{{ asset('storage/product/'. $boot->image) }}"
                         class="w-80 transform -rotate-25 mr-3" alt="">
 
                 </div>
 
 
                 <div class="bg-white rounded-xl shadow-md h-96 flex flex-col relative w-72 lg:w-96 flex-shrink-0">
-                    <img src='{{ asset('front/img/shoes-removebg-preview.png') }}'
+                    <img src='{{ asset('storage/product/'. $boot->image)  }}'
                         class="absolute lg-hidden  top-0 transform -translate-y-1/2 rotate-12 w-52" alt="">
                     <div class="mt-28 mx-5 lg:mt -16 px text-gray-700 flex-1">
-                        <h2 class="text-black font-extrabold text-2xl tracking-wide leding-none">Nike Air jjdjd</h2>
-                        <h3 class="text-sm mt-2 text-gray-500"> Men's Racing jddhj</h3>
+                        <h2 class="text-black font-extrabold text-2xl tracking-wide leding-none">{{ $boot->name }}</h2>
+                        <h3 class="text-sm mt-2 text-gray-500"> {{ $boot->category->name }}</h3>
                         <div class="my-2">
                             <p class="mb-1"> Size </p>
                             <div class="flex text-xs gap-4 items-center">
@@ -493,23 +842,24 @@
                                     7</div>
                             </div>
                             <div class="mt-1">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. <span
-                                    class="hidden lg:inline"> dolor sit amet consectetur adipisicing </span>
+                                {{ $boot->description }}
+                                 {{-- <span class="hidden lg:inline"> dolor sit amet consectetur adipisicing </span> --}}
                             </div>
                         </div>
 
 
                     </div>
                     <div class="px-6 flex items-center justify-between text-gray-700 mb-3">
-                        <p class="font-extrabold text-2xl gtransform scale-110 leading-none">$150.99</p>
-                        <button class="border-2 text-gray-700 border-gray-400 px-2 rounded-lg leading-non p-1.5"> Add
-                            to Cart</button>
+                        <p class="font-extrabold text-2xl gtransform scale-110 leading-none">${{ $boot->price }}</p>
+                        <button class="add-to-cart border-2 text-gray-700 border-gray-400 px-2 rounded-lg leading-non p-1.5"> Add to Cart</button>
                     </div>
                 </div>
 
             </div>
+            @endforeach
+           
 
-            <div class=" flex bg-gradient-to-tr from-blue-100 to -ble-200 rounded-xl shadow-lg">
+            {{-- <div class=" flex bg-gradient-to-tr from-blue-100 to -ble-200 rounded-xl shadow-lg">
                 <div class="relative hidden lg:flex flex-col min-hfull  items-center justify-center">
                     <img src="https://static.nike.com/a/images/t_default/xafjtunb69j40gagoyyc/chaussure-air-max-270-pour-9KTdg8qw.jpg"
                         class="absolute w-10 inset-0 m-5" alt="">
@@ -551,22 +901,36 @@
                     </div>
                     <div class="px-6 flex items-center justify-between text-gray-700 mb-3">
                         <p class="font-extrabold text-2xl gtransform scale-110 leading-none">$150.99</p>
-                        <button class="border-2 text-gray-700 border-gray-400 px-2 rounded-lg leading-non p-1.5"> Add
-                            to Cart</button>
+                        <button class="add-to-cart border-2 text-gray-700 border-gray-400 px-2 rounded-lg leading-non p-1.5"> Add to Cart</button>
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
 
         </div>
 
         {{-- PRODUCT CARD  --}}
 
-        <!-- component -->
+        <!-- boat -->
+        
+        <section class="-mt-[152px] mb-[155px]">
+            <div class="image-container">
+                <img id="moving-image" class="w-[500px]" src="{{ asset('img/bat1.png') }}" alt="Moving Image">
+            </div>
+        </section>
+
         <!-- component -->
         <!-- This is an example component -->
+        <div class="text-center mb-5">
+            <h1 class="text-3xl font-bold"> Lastest Products </h1>
+            <h3> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        </div>
+        
+
+        <!-- section 3 card -->
         <div class="max-w-2xl mx-auto flex gap-4">
 
+           
 
             <div class="card bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
@@ -616,64 +980,180 @@
                     <div class="flex items-center justify-between">
                         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
                         <button
-                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
-                            to cart</button>
+                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            {{-- <div class="card bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg p-8"
+                        src="https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp" alt="product image">
+                </a>
+                <div class="px-5 pb-5">
+                    <a href="#">
+                        <h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">Apple Watch
+                            Series 7
+                            GPS, Aluminium Case, Starlight Sport</h3>
+                    </a>
+                    <div class="flex items-center mt-2.5 mb-5">
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <span
+                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+                        <button 
+                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+                    </div>
+                </div>
+            </div> --}}
+        </div>
+
+        <div class="text-center mb-5">
+            <h1 class="text-3xl font-bold"> Lastest Products </h1>
+            <h3> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+        </div>
+        <!-- section 4 card -->
+
+        <div class="max-w-2xl mx-auto flex gap-4">
+
+           
+
+            <div class="card bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
+                <a href="#">
+                    <img class="rounded-t-lg p-8"
+                        src="https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp" alt="product image">
+                </a>
+                <div class="px-5 pb-5">
+                    <a href="#">
+                        <h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">Apple Watch
+                            Series 7
+                            GPS, Aluminium Case, Starlight Sport</h3>
+                    </a>
+                    <div class="flex items-center mt-2.5 mb-5">
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <span
+                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+                        <button
+                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
                     </div>
                 </div>
             </div>
             <div class="card bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
-              <a href="#">
-                  <img class="rounded-t-lg p-8"
-                      src="https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp" alt="product image">
-              </a>
-              <div class="px-5 pb-5">
-                  <a href="#">
-                      <h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">Apple Watch
-                          Series 7
-                          GPS, Aluminium Case, Starlight Sport</h3>
-                  </a>
-                  <div class="flex items-center mt-2.5 mb-5">
-                      <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                          </path>
-                      </svg>
-                      <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                          </path>
-                      </svg>
-                      <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                          </path>
-                      </svg>
-                      <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                          </path>
-                      </svg>
-                      <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                              d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
-                          </path>
-                      </svg>
-                      <span
-                          class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
-                  </div>
-                  <div class="flex items-center justify-between">
-                      <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-                      <a href="#"
-                          class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
-                          to cart</a>
-                  </div>
-              </div>
-          </div>
+                <a href="#">
+                    <img class="rounded-t-lg p-8"
+                        src="https://i.ibb.co/KqdgGY4/cosmetic-packaging-mockup-1150-40280.webp" alt="product image">
+                </a>
+                <div class="px-5 pb-5">
+                    <a href="#">
+                        <h3 class="text-gray-900 font-semibold text-xl tracking-tight dark:text-white">Apple Watch
+                            Series 7
+                            GPS, Aluminium Case, Starlight Sport</h3>
+                    </a>
+                    <div class="flex items-center mt-2.5 mb-5">
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-yellow-300" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                            </path>
+                        </svg>
+                        <span
+                            class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">5.0</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
+                        <button 
+                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+                    </div>
+                </div>
+            </div>
         </div>
         {{-- customer reviewsn --}}
         <section class="py-24 relative">
@@ -1162,18 +1642,18 @@
 
     </div> {{-- end main --}}
     {{-- end main --}}
-    
+
 
 
 
 
     {{-- Footer --}}
 
-    <section class="bg-[url('{{ asset('img/footer.jpg') }}')] bg-no-repeat bg-cover bg-center">
+    <section class="footer bg-no-repeat bg-cover bg-center h-[800px]">
 
 
-        <div class="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-            <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="px-4 pt-[33rem] mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+            <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4 text-white">
                 <div class="sm:col-span-2">
                     <a href="/" aria-label="Go home" title="Company" class="inline-flex items-center">
                         <svg class="w-8 text-deep-purple-accent-400" viewBox="0 0 24 24" stroke-linejoin="round"
@@ -1184,45 +1664,45 @@
                             <rect x="14" y="1" width="7" height="6"></rect>
                             <rect x="14" y="11" width="7" height="12"></rect>
                         </svg>
-                        <span class="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">Company</span>
+                        <span class="ml-2 text-xl font-bold tracking-wide text-white uppercase">Captain Sea</span>
                     </a>
                     <div class="mt-6 lg:max-w-sm">
-                        <p class="text-sm text-gray-800">
+                        <p class="text-sm text-white">
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                             laudantium, totam rem aperiam.
                         </p>
-                        <p class="mt-4 text-sm text-gray-800">
+                        <p class="mt-4 text-sm text-white">
                             Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
                             explicabo.
                         </p>
                     </div>
                 </div>
                 <div class="space-y-2 text-sm">
-                    <p class="text-base font-bold tracking-wide text-gray-900">Contacts</p>
+                    <p class="text-base font-bold tracking-wide text-white">Contacts</p>
                     <div class="flex">
-                        <p class="mr-1 text-gray-800">Phone:</p>
+                        <p class="mr-1 text-white">Phone:</p>
                         <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone"
-                            class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">850-123-5021</a>
+                            class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+212 666674335 / +44 7415322654</a>
                     </div>
                     <div class="flex">
-                        <p class="mr-1 text-gray-800">Email:</p>
+                        <p class="mr-1 text-white">Email:</p>
                         <a href="mailto:info@lorem.mail" aria-label="Our email" title="Our email"
-                            class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">info@lorem.mail</a>
+                            class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800 ">contact@thecaptainsea.com</a>
                     </div>
                     <div class="flex">
-                        <p class="mr-1 text-gray-800">Address:</p>
+                        <p class="mr-1 text-white">Address:</p>
                         <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer"
                             aria-label="Our address" title="Our address"
                             class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">
-                            312 Lovely Street, NY
+                            85 Great Portland Street London W1W 7LT United Kingdom
                         </a>
                     </div>
                 </div>
                 <div>
-                    <span class="text-base font-bold tracking-wide text-gray-900">Social</span>
+                    <span class="text-base font-bold tracking-wide text-white">Social</span>
                     <div class="flex items-center mt-1 space-x-3">
                         <a href="/"
-                            class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                            class="text-white transition-colors duration-300 hover:text-deep-purple-accent-400">
                             <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
                                 <path
                                     d="M24,4.6c-0.9,0.4-1.8,0.7-2.8,0.8c1-0.6,1.8-1.6,2.2-2.7c-1,0.6-2,1-3.1,1.2c-0.9-1-2.2-1.6-3.6-1.6 c-2.7,0-4.9,2.2-4.9,4.9c0,0.4,0,0.8,0.1,1.1C7.7,8.1,4.1,6.1,1.7,3.1C1.2,3.9,1,4.7,1,5.6c0,1.7,0.9,3.2,2.2,4.1 C2.4,9.7,1.6,9.5,1,9.1c0,0,0,0,0,0.1c0,2.4,1.7,4.4,3.9,4.8c-0.4,0.1-0.8,0.2-1.3,0.2c-0.3,0-0.6,0-0.9-0.1c0.6,2,2.4,3.4,4.6,3.4 c-1.7,1.3-3.8,2.1-6.1,2.1c-0.4,0-0.8,0-1.2-0.1c2.2,1.4,4.8,2.2,7.5,2.2c9.1,0,14-7.5,14-14c0-0.2,0-0.4,0-0.6 C22.5,6.4,23.3,5.5,24,4.6z">
@@ -1230,7 +1710,7 @@
                             </svg>
                         </a>
                         <a href="/"
-                            class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                            class="text-white transition-colors duration-300 hover:text-deep-purple-accent-400">
                             <svg viewBox="0 0 30 30" fill="currentColor" class="h-6">
                                 <circle cx="15" cy="15" r="4"></circle>
                                 <path
@@ -1239,7 +1719,7 @@
                             </svg>
                         </a>
                         <a href="/"
-                            class="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
+                            class="text-white transition-colors duration-300 hover:text-deep-purple-accent-400">
                             <svg viewBox="0 0 24 24" fill="currentColor" class="h-5">
                                 <path
                                     d="M22,0H2C0.895,0,0,0.895,0,2v20c0,1.105,0.895,2,2,2h11v-9h-3v-4h3V8.413c0-3.1,1.893-4.788,4.659-4.788 c1.325,0,2.463,0.099,2.795,0.143v3.24l-1.918,0.001c-1.504,0-1.795,0.715-1.795,1.763V11h4.44l-1,4h-3.44v9H22c1.105,0,2-0.895,2-2 V2C24,0.895,23.105,0,22,0z">
@@ -1247,28 +1727,28 @@
                             </svg>
                         </a>
                     </div>
-                    <p class="mt-4 text-sm text-gray-500">
+                    <p class="mt-4 text-sm text-white">
                         Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken spare ribs salami.
                     </p>
                 </div>
             </div>
             <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-                <p class="text-sm text-gray-600">
-                    © Copyright 2020 Lorem Inc. All rights reserved.
+                <p class="text-sm text-white">
+                    © Copyright 2024  YAZIDONE . All rights reserved.
                 </p>
                 <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
                     <li>
                         <a href="/"
-                            class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">F.A.Q</a>
+                            class="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">F.A.Q</a>
                     </li>
                     <li>
                         <a href="/"
-                            class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy
+                            class="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy
                             Policy</a>
                     </li>
                     <li>
                         <a href="/"
-                            class="text-sm text-gray-600 transition-colors duration-300 hover:text-deep-purple-accent-400">Terms
+                            class="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">Terms
                             &amp; Conditions</a>
                     </li>
                 </ul>
@@ -1281,11 +1761,15 @@
 
     <script src="https://unpkg.com/flowbite@1.5.1/dist/flowbite.js"></script>
     <script src="{{ asset('front/script.js') }}"></script>
-    <script src="{{ asset('js/flycard.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/tw-elements@2.0.0/js/tw-elements.umd.min.js"></script>
     <!-- JIT SUPPORT, for using peer-* below -->
     <script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
-
+    {{-- slider --}}
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js"></script>
+    <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
+    <script src="{{ asset('js/slider.js') }}"></script>
+    <script src="{{ asset('js/scroll.js') }}"></script>
+    <script src="{{ asset('js/flycard.js') }}"></script>
 </body>
 
 </html>

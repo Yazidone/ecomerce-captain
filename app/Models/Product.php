@@ -19,6 +19,12 @@ class Product extends Model
         'image',
         'code_barre',
         'category_id',
+        'size',
+        'color1',
+        'color2',
+        'color3',
+        'color4',
+
 
      
     

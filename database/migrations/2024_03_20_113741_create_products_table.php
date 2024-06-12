@@ -18,8 +18,12 @@ return new class extends Migration
             $table->double('price');
             $table->string('discount');
             $table->string('image');
+            $table->string('size');
+            $table->string('color1')->nullable();
+            $table->string('color2')->nullable();
+            $table->string('color3')->nullable();
+            $table->string('color4')->nullable();
             $table->string('code_barre',100);
-            
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
