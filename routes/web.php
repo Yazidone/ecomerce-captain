@@ -19,11 +19,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/', [ProductController::class,'productHome']);
+
+Route::middleware('visitor')->group(function () {
+    Route::get('/', [ProductController::class,'productHome']);
+    
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 });
+
+
 
 
 Route::get('/category', [CategoryController::class,'index']);
@@ -57,6 +63,19 @@ Route::get('/card', function () {
 Route::get('/signup', function () {
     return view('/client.client');
 });
+
+Route::get('/product', function () {
+    return view('/front.products');
+});
+
+
+// pageproducts
+Route::get('/products', [ProductController::class,'index']);
+Route::get('/product/show/{id}', [ProductController::class,'show']);
+Route::get('/product/edit/{id}', [ProductController::class,'edit']);
+Route::post('/product/update/{id}', [ProductController::class,'update']);
+Route::post('/product/delete/{id}', [ProductController::class,'delete']);
+Route::post('/product/store', [ProductController::class,'store']);
 
 Route::post('/signuppop', [ClientformController::class,'indexclient']) ->name('indexclient');
 

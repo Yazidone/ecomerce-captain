@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Image;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 
@@ -14,9 +15,11 @@ class ProductController extends Controller
     public function index() {
         $products = Product::all(); 
         $categories = Category::all(); 
+        $nombreL = count(Product::all()->where("size","=","L"));
         return view('product.index',[
             'products' => $products,
             'categories' => $categories,
+            'nombreL' => $nombreL,
         ]);
     }
     // front
@@ -43,24 +46,21 @@ class ProductController extends Controller
         $color=$request-> color;
         $discount = $request->Quantity;
         $image = $request->image;
-        $image = $request->file('image')->getClientOriginalName();
-        $code_barre = $request->file('CODE_BARE')->getClientOriginalName();
-       
-          // save image to folder and database
-        if($request->hasFile('image')){
-            $request->file('image')->storeAs('product',$image,'public');
-        }
+        // $image = $request->file('image')->getClientOriginalName();
+        $code_barre = $request->file('CODE_BARE')->hashName();
         if($request->hasFile('CODE_BARE')){
             $request->file('CODE_BARE')->storeAs('CodeBarreImages',$code_barre,'public');
-        }
-        
+        } 
+          // save image to folder and database
+       
+        // dd($code_barre);
         //create 
-        Product::create([
+        $product =Product::create([
             'name'=>$name,
             'description'=>$description,
             'price'=>$price,
             'discount'=>$discount,
-            'image'=>$image,
+            // 'image'=>$image,
             'category_id'=>$category_id, 
             'size'=>$size,
             'color1'=>$color1,
@@ -69,6 +69,48 @@ class ProductController extends Controller
             'color4'=>$color4,
             'code_barre'=>$code_barre,
         ]);
+
+        if($request->hasFile('image1')){
+            $image1=$request->file('image1')->hashName();
+            $request->file('image1')->storeAs('product',$image1,'public');
+            Image::create([
+                'name'=> $image1,
+                 'product_id'=> $product->id ,
+            ]);
+        } 
+        if($request->hasFile('image2')){
+            $image2=$request->file('image2')->hashName();
+            $request->file('image2')->storeAs('product',$image2,'public');
+            Image::create([
+                'name'=>$image2,
+                 'product_id'=> $product->id ,
+            ]);
+        }
+        if($request->hasFile('image3')){
+            $image3=$request->file('image3')->hashName();
+            $request->file('image3')->storeAs('product',$image3,'public');
+            Image::create([
+                'name'=>$image3,
+                 'product_id'=> $product->id ,
+            ]);
+        }
+        if($request->hasFile('image4')){
+            $image4=$request->file('image4')->hashName();
+            $request->file('image4')->storeAs('product',$image4,'public');
+            Image::create([
+                'name'=>$image4,
+                 'product_id'=> $product->id ,
+            ]);
+        }
+        if($request->hasFile('image5')){
+            $image5=$request->file('image5')->hashName();
+            $request->file('image5')->storeAs('product',$image5,'public');
+            Image::create([
+                'name'=>$image5,
+                 'product_id'=> $product->id ,
+            ]);
+        }
+      
         //redirect
         return redirect('/products');
 
@@ -88,8 +130,8 @@ class ProductController extends Controller
         $category_id = $request->category_id;
         $discount = $request->Quantity;
         $image = $request->image;
-        $image = $request->file('image')->getClientOriginalName();
-        $code_barre = $request->file('CODE_BARE')->getClientOriginalName();
+        $image = $request->file('image')->hashName();
+        $code_barre = $request->file('CODE_BARE')->hashName();
 
         $product = Product::find($id);
        
@@ -123,6 +165,7 @@ class ProductController extends Controller
 
     public function destroy($id){
             $product=Product::find($id);
+            $images=Image::where('product_id',$id)->delete();
             $product->delete();
             return redirect('/products')->with('success','item deleted successfully');
         }

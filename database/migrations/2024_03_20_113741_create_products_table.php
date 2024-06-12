@@ -17,7 +17,7 @@ return new class extends Migration
             $table->text('description');
             $table->double('price');
             $table->string('discount');
-            $table->string('image');
+            // $table->string('image');
             $table->string('size');
             $table->string('color1')->nullable();
             $table->string('color2')->nullable();

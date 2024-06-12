@@ -18,7 +18,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Products  Table </h6>
+                <h6 class="m-0 font-weight-bold text-primary">Products  Table L : {{ $nombreL }} </h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -41,15 +41,15 @@
                         </thead>
                 
                         <tbody>
-                          
-                                @foreach ($products as $product)
+                            @foreach ($products as $product)
+                            {{-- @dd($product->code_barre) --}}
                                 <tr>
                                 <td>{{$product->id}}</td>
                             
                                 <td>{{$product->name}}</td>
                                 <td>
                                     <img class="img-profile" width="100"
-                                        src="{{asset('/storage/product').'/'.$product->image}}">
+                                        src="{{asset('/storage/product').'/'.$product->image->name}}">
                                 </td> 
                                 <td>{{$product->category_id}}</td>
                                 <td>{{$product->price}}</td>
@@ -87,65 +87,65 @@
     {{-- @include('product.edit') --}}
     @include('product.delete')
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const categorySelect = document.querySelector('select[name="category_id"]');
-            const sizeSelect = document.querySelector('select[name="size"]');
+        // document.addEventListener("DOMContentLoaded", function() {
+        //     const categorySelect = document.querySelector('select[name="category_id"]');
+        //     const sizeSelect = document.querySelector('select[name="size"]');
     
-            const shoeSizes = ["40", "41", "42", "44", "45"];
-            const clothingSizes = ["L", "XL", "XXL"];
-            const bagwaterSizes = ["20L", "40L", "60L" , "80L"];
-            const watersportgearSizes = ["large(10.5)", "extra large(14.5)", ];
-            const marineequipmentSizes = ["PH(10.5)", "PH(14.5)", ];
+        //     const shoeSizes = ["40", "41", "42", "44", "45"];
+        //     const clothingSizes = ["L", "XL", "XXL"];
+        //     const bagwaterSizes = ["20L", "40L", "60L" , "80L"];
+        //     const watersportgearSizes = ["large(10.5)", "extra large(14.5)", ];
+        //     const marineequipmentSizes = ["PH(10.5)", "PH(14.5)", ];
 
             
-            function updateSizeOptions() {
-                const selectedCategory = categorySelect.options[categorySelect.selectedIndex].text;
-                sizeSelect.innerHTML = ""; // Clear current options
-                // console.log(selectedCategory.toLowerCase().includes("Water Sports-Gear"));
+        //     function updateSizeOptions() {
+        //         const selectedCategory = categorySelect.options[categorySelect.selectedIndex].text;
+        //         sizeSelect.innerHTML = ""; // Clear current options
+        //         // console.log(selectedCategory.toLowerCase().includes("Water Sports-Gear"));
     
-                if (selectedCategory.toLowerCase().includes("boots")) {
-                    shoeSizes.forEach(size => {
-                        let option = document.createElement("option");
-                        option.value = size;
-                        option.text = size;
-                        sizeSelect.add(option);
-                    });
-                } else if (selectedCategory.toLowerCase().includes("waterproof clothing")) {
-                clothingSizes.forEach(size => {
-                    let option = document.createElement("option");
-                    option.value = size;
-                    option.text = `${size} (${size})`;
-                    sizeSelect.add(option);
-                });
+        //         if (selectedCategory.toLowerCase().includes("boots")) {
+        //             shoeSizes.forEach(size => {
+        //                 let option = document.createElement("option");
+        //                 option.value = size;
+        //                 option.text = size;
+        //                 sizeSelect.add(option);
+        //             });
+        //         } else if (selectedCategory.toLowerCase().includes("waterproof clothing")) {
+        //         clothingSizes.forEach(size => {
+        //             let option = document.createElement("option");
+        //             option.value = size;
+        //             option.text = `${size} (${size})`;
+        //             sizeSelect.add(option);
+        //         });
 
-                }else if (selectedCategory.toLowerCase().includes("waterproof backpack")) {
-                bagwaterSizes.forEach(size => {
-                    let option = document.createElement("option");
-                    option.value = size;
-                    option.text = `${size} (${size})`;
-                    sizeSelect.add(option);
-                });
-            }else if (selectedCategory.toLowerCase().includes("water sports-gear")) {
+        //         }else if (selectedCategory.toLowerCase().includes("waterproof backpack")) {
+        //         bagwaterSizes.forEach(size => {
+        //             let option = document.createElement("option");
+        //             option.value = size;
+        //             option.text = `${size} (${size})`;
+        //             sizeSelect.add(option);
+        //         });
+        //     }else if (selectedCategory.toLowerCase().includes("water sports-gear")) {
                 
-                watersportgearSizes.forEach(size => {
-                    let option = document.createElement("option");
-                    option.value = size;
-                    option.text = `${size} (${size})`;
-                    sizeSelect.add(option);
-                });
-            }else if (selectedCategory.toLowerCase().includes("marine equipment")) {
-                marineequipmentSizes.forEach(size => {
-                    let option = document.createElement("option");
-                    option.value = size;
-                    option.text = `${size} (${size})`;
-                    sizeSelect.add(option);
-                });
-            }
-        }
+        //         watersportgearSizes.forEach(size => {
+        //             let option = document.createElement("option");
+        //             option.value = size;
+        //             option.text = `${size} (${size})`;
+        //             sizeSelect.add(option);
+        //         });
+        //     }else if (selectedCategory.toLowerCase().includes("marine equipment")) {
+        //         marineequipmentSizes.forEach(size => {
+        //             let option = document.createElement("option");
+        //             option.value = size;
+        //             option.text = `${size} (${size})`;
+        //             sizeSelect.add(option);
+        //         });
+        //     }
+        // }
     
-            categorySelect.addEventListener("change", updateSizeOptions);
-            updateSizeOptions(); // Initialize on load
-        });
+        //     categorySelect.addEventListener("change", updateSizeOptions);
+        //     updateSizeOptions(); // Initialize on load
+        // });
     </script>
     
 @endsection

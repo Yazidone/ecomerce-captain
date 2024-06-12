@@ -30,9 +30,19 @@ class Product extends Model
     
     ];
 
+    public function order(){//order_product many to many
+        return $this->belongsToMany(Order::class)->withPivot('quantity')->withPivot('price');
+    }
+
+
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function image()
+    {
+        return $this->hasOne(Image::class);
     }
 
     public function clientOrders()

@@ -22,7 +22,12 @@
 						</div>										
 						<div class="form-group">
 							<label>Image</label>
-							<input type="file" name="image" class="form-control" >
+							<input type="file" name="image1" class="form-control" >
+							<input type="file" name="image2" class="form-control" >
+							<input type="file" name="image3" class="form-control" >
+							<input type="file" name="image4" class="form-control" >
+							<input type="file" name="image5" class="form-control" >
+
 						</div>										
 						<div class="form-group">
 							<label>Category</label>
@@ -39,10 +44,15 @@
 						</div>
 						<div class="form-group">
 							<label>Size</label>
+							{{-- <input type="text" name="size" class="form-control" placeholder="L,XL,XXL" required> <br> --}}
 							<select name="size" id="">
-								{{-- <option value="L">Large (L)</option>
-								<option value="XL">Extra Large (XL)</option>
-								<option value="XXL">Double Extra Large (XXL)</option>
+								<option value="L, XL,XXL">L, XL,XXL</option>
+								<option value="40, 41, 42">40, 41,42,44,45 </option>
+								<option value="20L, 40L, 60L,80L">20L, 40L, 60L,80L </option>
+								<option value="10'6, 12'5">10'6, 13'2" </option>
+								
+
+								{{-- <option value="XXL">Double Extra Large (XXL)</option>
 								<option value="40">40</option>
 								<option value="41">41</option>
 								<option value="42">42</option>

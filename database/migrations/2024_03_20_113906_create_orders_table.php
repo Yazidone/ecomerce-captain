@@ -17,11 +17,13 @@ return new class extends Migration
                 $table->id();
                 $table->unsignedBigInteger('client_id');
                 $table->foreign('client_id')->references('id')->on('users');
-                $table->unsignedBigInteger('product_id');
-                $table->foreign('product_id')->references('id')->on('products');
+                // $table->unsignedBigInteger('product_id');
+                // $table->foreign('product_id')->references('id')->on('products');
                 $table->string('quantity');
-                $table->string('shopping_');
-                $table->string ('delvery address');
+                $table->string('shopping_method');
+                $table->string('telephone');
+                $table->string ('delvery_address');
+                $table->string ('status');
                 $table->string('total');
                 $table->timestamps();
         });

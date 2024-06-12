@@ -35,10 +35,11 @@
         @tailwind utilities;
 
         @layer utilities {
-            .footer{
-                background-image:linear-gradient(rgba(4,9,30,0.02),rgba(4 9 30 /39%)), url({{ asset('img/footer.jpg') }});
-                
+            .footer {
+                background-image: linear-gradient(rgba(4, 9, 30, 0.02), rgba(4 9 30 /39%)), url({{ asset('img/footer.jpg') }});
+
             }
+
             .flying-img {
                 position: absolute;
                 animation: fly_to_cart 1s ease-in-out;
@@ -238,7 +239,7 @@
             }
 
             .slider .box1 button {
-                background-color:  #0033FF ;
+                background-color: #0033FF;
             }
 
             .slider .box2 {
@@ -272,7 +273,7 @@
             }
 
             .slider .box3 button {
-                background-color:  #0033FF;
+                background-color: #0033FF;
             }
 
             .slider .box4 {
@@ -289,7 +290,7 @@
             }
 
             .slider .box4 button {
-                background-color:  #0033FF;
+                background-color: #0033FF;
             }
 
             .slider .box5 {
@@ -306,7 +307,7 @@
             }
 
             .slider .box5 button {
-                background-color:  #0033FF;
+                background-color: #0033FF;
             }
 
             .slider .illustration {
@@ -629,7 +630,8 @@
                             class="absolute left-auto -ml-1 top-0 rounded-full bg-red-500 px-1 py-0 text-xs text-white">0</span>
                     </span>
 
-                    <span class="shopping-cart relative rounded-full px-3 py-2" data-product-count="0">
+                    <span class="shopping-cart relative rounded-full px-3 py-2" id="cart-count"
+                        data-product-count="0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
                             class="cursor-pointer fill-[#333] inline" viewBox="0 0 512 512">
                             <path
@@ -672,7 +674,7 @@
                         <div class="box1 box">
                             <div class="bg"></div>
                             <div class="details ">
-                                <h1 title-slider   text-white>I'm the first Box</h1>
+                                <h1 title-slider text-white>I'm the first Box</h1>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipiscing
                                     elit. Integer lacinia dui lectus. Donec scelerisque ipsum
@@ -681,8 +683,8 @@
                                 <button>Check Now</button>
                             </div>
 
-                            <div class="illustration"> <img src="{{ asset('front/img/gilet.png') }}"
-                                    width="520px" alt="">
+                            <div class="illustration"> <img src="{{ asset('front/img/gilet.png') }}" width="520px"
+                                    alt="">
                             </div>
                         </div>
 
@@ -700,8 +702,7 @@
                             </div>
 
                             <div class="illustration">
-                                <img src="{{ asset('front/img/sac.png') }}" width="520px"
-                                    alt="">
+                                <img src="{{ asset('front/img/sac.png') }}" width="520px" alt="">
                                 <!-- <div class="inner"></div> -->
                             </div>
                         </div>
@@ -752,8 +753,8 @@
                                 <button class="button-slider">Check Now</button>
                             </div>
 
-                            <div class="illustration"> <img src="{{ asset('front/img/BOTTES.png') }}"
-                                    width="520px" alt="">
+                            <div class="illustration"> <img src="{{ asset('front/img/BOTTES.png') }}" width="520px"
+                                    alt="">
                             </div>
                         </div>
 
@@ -809,55 +810,62 @@
         <div class="min-h-screen  flex items-center justify-center antialised space-x-2">
             <!-- card -->
             @foreach ($boots as $boot)
-            <div class=" flex bg-gradient-to-tr from-blue-100 to -ble-200 rounded-xl shadow-lg">
-                <div class="relative hidden lg:flex flex-col min-hfull  items-center justify-center">
-                    <img src="https://static.nike.com/a/images/t_default/xafjtunb69j40gagoyyc/chaussure-air-max-270-pour-9KTdg8qw.jpg"
-                        class="absolute w-10 inset-0 m-5" alt="">
-                    <img src="{{ asset('storage/product/'. $boot->image) }}"
-                        class="w-80 transform -rotate-25 mr-3" alt="">
+                <div class=" flex bg-gradient-to-tr from-blue-100 to -ble-200 rounded-xl shadow-lg">
+                    <div class="relative hidden lg:flex flex-col min-hfull  items-center justify-center">
+                        <img src="https://static.nike.com/a/images/t_default/xafjtunb69j40gagoyyc/chaussure-air-max-270-pour-9KTdg8qw.jpg"
+                            class="absolute w-10 inset-0 m-5" alt="">
+                        <img src="{{ asset('storage/product/' . $boot->image) }}"
+                            class="w-80 transform -rotate-25 mr-3" alt="">
 
-                </div>
+                    </div>
 
 
-                <div class="bg-white rounded-xl shadow-md h-96 flex flex-col relative w-72 lg:w-96 flex-shrink-0">
-                    <img src='{{ asset('storage/product/'. $boot->image)  }}'
-                        class="absolute lg-hidden  top-0 transform -translate-y-1/2 rotate-12 w-52" alt="">
-                    <div class="mt-28 mx-5 lg:mt -16 px text-gray-700 flex-1">
-                        <h2 class="text-black font-extrabold text-2xl tracking-wide leding-none">{{ $boot->name }}</h2>
-                        <h3 class="text-sm mt-2 text-gray-500"> {{ $boot->category->name }}</h3>
-                        <div class="my-2">
-                            <p class="mb-1"> Size </p>
-                            <div class="flex text-xs gap-4 items-center">
-                                <div
-                                    class="rounded-full cursor-pointer h-6 w-6 leading-none border border-gray-600 flex items-center justify-center">
-                                    7</div>
-                                <div
-                                    class="rounded-full cursor-pointer h-6 w-6 leading-none border border-gray-600 flex items-center justify-center">
-                                    8</div>
-                                <div
-                                    class="rounded-full cursor-pointer h-6 w-6 leading-none border border-gray-600 flex items-center justify-center">
-                                    9</div>
-                                <div
-                                    class="rounded-full cursor-pointer h-6 w-6 leading-none border border-blue-600 flex items-center justify-center text-white bg-blue-600">
-                                    7</div>
+                    <div class="bg-white rounded-xl shadow-md h-96 flex flex-col relative w-72 lg:w-96 flex-shrink-0">
+                        <img src='{{ asset('storage/product/' . $boot->image) }}'
+                            class="absolute lg-hidden  top-0 transform -translate-y-1/2 rotate-12 w-52"
+                            alt="">
+                        <div class="mt-28 mx-5 lg:mt -16 px text-gray-700 flex-1">
+                            <h2 class="text-black font-extrabold text-2xl tracking-wide leding-none">
+                                {{ $boot->name }}</h2>
+                            <h3 class="text-sm mt-2 text-gray-500"> {{ $boot->category->name }}</h3>
+                            <div class="my-2">
+                                <p class="mb-1"> Size </p>
+                                <div class="flex text-xs gap-4 items-center">
+                                    <div
+                                        class="rounded-full cursor-pointer h-6 w-6 leading-none border border-gray-600 flex items-center justify-center">
+                                        7</div>
+                                    <div
+                                        class="rounded-full cursor-pointer h-6 w-6 leading-none border border-gray-600 flex items-center justify-center">
+                                        8</div>
+                                    <div
+                                        class="rounded-full cursor-pointer h-6 w-6 leading-none border border-gray-600 flex items-center justify-center">
+                                        9</div>
+                                    <div
+                                        class="rounded-full cursor-pointer h-6 w-6 leading-none border border-blue-600 flex items-center justify-center text-white bg-blue-600">
+                                        7</div>
+                                </div>
+                                <div class="mt-1">
+                                    {{ $boot->description }}
+                                    {{-- <span class="hidden lg:inline"> dolor sit amet consectetur adipisicing </span> --}}
+                                </div>
                             </div>
-                            <div class="mt-1">
-                                {{ $boot->description }}
-                                 {{-- <span class="hidden lg:inline"> dolor sit amet consectetur adipisicing </span> --}}
-                            </div>
+
+
                         </div>
-
-
+                        <div class="px-6 flex items-center justify-between text-gray-700 mb-3">
+                            <p class="font-extrabold text-2xl gtransform scale-110 leading-none">${{ $boot->price }}
+                            </p>
+                            <button onclick="addToCart({{ $boot->id }})" id="cartBtn{{ $boot->id }}"
+                                data-id="{{ $boot->id }}" data-name="{{ $boot->name }}"
+                                data-image="{{ $boot->image }}" data-price="{{ $boot->price }}"
+                                class="add-to-cart border-2 text-gray-700 border-gray-400 px-2 rounded-lg leading-non p-1.5">
+                                Add to Cart</button>
+                        </div>
                     </div>
-                    <div class="px-6 flex items-center justify-between text-gray-700 mb-3">
-                        <p class="font-extrabold text-2xl gtransform scale-110 leading-none">${{ $boot->price }}</p>
-                        <button class="add-to-cart border-2 text-gray-700 border-gray-400 px-2 rounded-lg leading-non p-1.5"> Add to Cart</button>
-                    </div>
+
                 </div>
-
-            </div>
             @endforeach
-           
+
 
             {{-- <div class=" flex bg-gradient-to-tr from-blue-100 to -ble-200 rounded-xl shadow-lg">
                 <div class="relative hidden lg:flex flex-col min-hfull  items-center justify-center">
@@ -912,7 +920,7 @@
         {{-- PRODUCT CARD  --}}
 
         <!-- boat -->
-        
+
         <section class="-mt-[152px] mb-[155px]">
             <div class="image-container">
                 <img id="moving-image" class="w-[500px]" src="{{ asset('img/bat1.png') }}" alt="Moving Image">
@@ -925,12 +933,12 @@
             <h1 class="text-3xl font-bold"> Lastest Products </h1>
             <h3> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h3>
         </div>
-        
+
 
         <!-- section 3 card -->
         <div class="max-w-2xl mx-auto flex gap-4">
 
-           
+
 
             <div class="card bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
@@ -980,12 +988,13 @@
                     <div class="flex items-center justify-between">
                         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
                         <button
-                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+                            to cart</button>
                     </div>
                 </div>
             </div>
 
-            
+
             {{-- <div class="card bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
                     <img class="rounded-t-lg p-8"
@@ -1048,7 +1057,7 @@
 
         <div class="max-w-2xl mx-auto flex gap-4">
 
-           
+
 
             <div class="card bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
@@ -1098,7 +1107,8 @@
                     <div class="flex items-center justify-between">
                         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
                         <button
-                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+                            to cart</button>
                     </div>
                 </div>
             </div>
@@ -1149,8 +1159,9 @@
                     </div>
                     <div class="flex items-center justify-between">
                         <span class="text-3xl font-bold text-gray-900 dark:text-white">$599</span>
-                        <button 
-                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</button>
+                        <button
+                            class="add-to-cart text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add
+                            to cart</button>
                     </div>
                 </div>
             </div>
@@ -1682,7 +1693,8 @@
                     <div class="flex">
                         <p class="mr-1 text-white">Phone:</p>
                         <a href="tel:850-123-5021" aria-label="Our phone" title="Our phone"
-                            class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+212 666674335 / +44 7415322654</a>
+                            class="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800">+212
+                            666674335 / +44 7415322654</a>
                     </div>
                     <div class="flex">
                         <p class="mr-1 text-white">Email:</p>
@@ -1734,7 +1746,7 @@
             </div>
             <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
                 <p class="text-sm text-white">
-                    © Copyright 2024  YAZIDONE . All rights reserved.
+                    © Copyright 2024 YAZIDONE . All rights reserved.
                 </p>
                 <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
                     <li>
@@ -1769,7 +1781,76 @@
     <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/CSSRulePlugin3.min.js"></script>
     <script src="{{ asset('js/slider.js') }}"></script>
     <script src="{{ asset('js/scroll.js') }}"></script>
-    <script src="{{ asset('js/flycard.js') }}"></script>
+    {{-- <script src="{{ asset('js/flycard.js') }}"></script> --}}
+    <script>
+        // afficher le nbr de produits dans panier
+        let cart = localStorage.getItem('cart');
+        // Si le panier n'existe pas, initialiser un tableau vide
+        if (cart) {
+            cart = JSON.parse(cart);
+            cart.innerText = ''
+            document.getElementById('cart-count').innerText = cart.length;
+        }
+    </script>
+
+    <script>
+        // ajouter au panier
+        function addToCart(productId) {
+            // let productId = cartBtn.getAttribute('data-id')
+            let cartBtn = document.getElementById('cartBtn' + productId);
+            let productName = cartBtn.getAttribute('data-name')
+            let productImage = cartBtn.getAttribute('data-image')
+            let productPrice = cartBtn.getAttribute('data-price')
+            let productQuantity = 1; // Default quantity to add
+
+            // Vérifier si le panier existe déjà dans le stockage local
+            let cart = localStorage.getItem('cart');
+
+            // Si le panier n'existe pas, initialiser un tableau vide
+            if (!cart) {
+                cart = [];
+            } else {
+                // Si le panier existe, le convertir en tableau JSON
+                cart = JSON.parse(cart);
+            }
+
+            // Vérifier si le produit existe déjà dans le panier
+            let existingProductIndex = cart.findIndex(item => item.id === productId);
+
+            if (existingProductIndex !== -1) {
+                // Si le produit existe déjà, incrementer la quantité
+                cart[existingProductIndex].quantity++;
+            } else {
+                // Si le produit n'existe pas, l'ajouter au panier
+                cart.push({
+                    id: productId,
+                    name: productName,
+                    image: productImage,
+                    price: productPrice,
+                    quantity: productQuantity
+                });
+            }
+
+            // Mettre à jour le panier dans le stockage local
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Mettre à jour le nombre de produits dans le panier affiché sur la page
+            updateCartCount(cart.length);
+        }
+
+        // Fonction pour mettre à jour le nombre de produits dans le panier affiché sur la page
+        function updateCartCount(count) {
+            // Mettre à jour l'élément HTML avec l'ID "cart-count" avec le nouveau nombre de produits
+            document.getElementById('cart-count').innerText = count;
+        }
+
+        // Exemple d'utilisation : Appeler la fonction addToCart avec l'ID du produit lorsqu'un bouton "Ajouter au panier" est cliqué
+        // document.getElementById('add-to-cart-button').addEventListener('click', function() {
+        // 	addToCart('productId123'); // Remplacer 'productId123' par l'ID réel du produit
+        // });
+    </script>
+
+
 </body>
 
 </html>
